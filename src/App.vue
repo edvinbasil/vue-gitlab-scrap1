@@ -17,6 +17,7 @@ export default {
     return {
       user_id: "2367780",
       user: {},
+      projects: []
     }
   },
   methods:{
@@ -26,11 +27,19 @@ export default {
           .then(data => {
             this.user = {name:data.name,desc:data.bio,username:data.username}
             })
+    },
+    getProjects(){
+      fetch(`https://gitlab.com/api/v4/users/${this.user_id}/projects`)
+        .then(res => res.json())
+        .then(data => {
+            this.projects = data
+        })
     }
-    
+
   },
   mounted() {
       this.getUserInfo()
+      this.getProjects()
     }
 }
 </script>
