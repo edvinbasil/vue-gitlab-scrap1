@@ -3,6 +3,23 @@
     <h1>{{user.name}}</h1>
     <p>{{user.desc}}</p>
     <h2>My Projects</h2>
+   
+    <el-table
+      :data="projects"
+      style="width: 75%; margin: auto">
+      <el-table-column
+        prop="name"
+        label="Name">
+      </el-table-column>
+      <el-table-column
+        prop="description"
+        label="Description">
+      </el-table-column>
+      <el-table-column
+        prop="http_url_to_repo"
+        label="URL">
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
@@ -52,5 +69,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
 }
 </style>
