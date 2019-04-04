@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <h1>{{user.name}}</h1>
+    <p>{{user.desc}}</p>
+    <h2>My Projects</h2>
   </div>
 </template>
 
@@ -9,7 +12,26 @@ import Project from './components/Project.vue'
 export default {
   name: 'app',
   components: {
-  }
+  },
+  data(){
+    return {
+      user_id: "2367780",
+      user: {},
+    }
+  },
+  methods:{
+    getUserInfo(){
+        fetch(`https://gitlab.com/api/v4/users/${this.user_id}`)
+          .then(res => res.json())
+          .then(data => {
+            this.user = {name:data.name,desc:data.bio,username:data.username}
+            })
+    }
+    
+  },
+  mounted() {
+      this.getUserInfo()
+    }
 }
 </script>
 
