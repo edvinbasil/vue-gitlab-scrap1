@@ -27,7 +27,7 @@ export default {
   components: {},
   data() {
     return {
-      user_id: window.location.pathname.substring(1) || 2722811,
+      user_id: window.location.pathname.substring(1) || 2367780,
       user: {},
       projects: []
     };
