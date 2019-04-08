@@ -27,7 +27,7 @@ export default {
   components: {},
   data() {
     return {
-      user_id: window.location.pathname.substring(1) || 2367780,
+      user_id: window.location.pathname.substring(1) || 2722811,
       user: {},
       projects: []
     };
@@ -42,7 +42,8 @@ export default {
             desc: data.bio,
             username: data.username
           };
-        });
+        })
+        
     },
     getProjects() {
       fetch(`https://gitlab.com/api/v4/users/${this.user_id}/projects`)
