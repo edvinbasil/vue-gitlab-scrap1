@@ -25,5 +25,21 @@ npm run test
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Firebase config
+
+Install firebase cli tools globally
+```
+npm install -g firebase-tools
+```
+
+### Local testing
+
+```
+firebase serve
+```
+
+### Deployment
+
+```
+firebase deploy
+```
