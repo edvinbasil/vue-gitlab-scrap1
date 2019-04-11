@@ -40,6 +40,12 @@ firebase serve
 
 ### Deployment
 
+Deploying to firebase
 ```
 firebase deploy
+```
+
+Usually you would want to build and deploy to firebase
+```
+npm run build && firebase deploy
 ```
