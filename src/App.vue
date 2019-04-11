@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <el-container style="height: 500px; border: 1px solid #eee">
-      <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+    <el-container style="height: 97vh">
+      <el-aside width="25%" style="background-color: #f5f5f5">
+        <div style="height:200px; width:200px; background-color:#ddd;margin:auto; margin-top: 20px"></div>
         <h1>{{ user.name }}</h1>
         <p>{{ user.desc }}</p>
       </el-aside>
