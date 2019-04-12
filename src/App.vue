@@ -7,6 +7,7 @@
         </div>
         <h1>{{ user.name }}</h1>
         <p>{{ user.desc }}</p>
+        <a style="color: #0366d6; font-size:1.2em" target="_blank" rel="noopener noreferrer" :href="'https://gitlab.com/' + user.username">@{{ user.username }}</a>
       </el-aside>
 
       <el-container>
@@ -22,7 +23,7 @@
               <template slot-scope="scope">
                 <a
                   :href="scope.row.http_url_to_repo"
-                  style="text-decoration:none; color: #356ca0"
+                  style="text-decoration:none; color: #0366d6"
                   >{{ scope.row.http_url_to_repo }}</a
                 >
               </template>
@@ -84,7 +85,8 @@ export default {
   color: #2c3e50;
 }
 h1 {
-  font-size: 1.6em
+  font-size: 1.6em;
+  font-weight: 600
 }
 p{
   padding: 0px 30px;
