@@ -2,7 +2,9 @@
   <div id="app">
     <el-container style="height: 97vh">
       <el-aside width="25%" style="background-color: #f5f5f5">
-        <div style="height:200px; width:200px; background-color:#ddd;margin:auto; margin-top: 20px"></div>
+        <div style="height:200px; width:200px; margin:auto; margin-top: 20px">
+          <img style="border-radius: 50%" height="100%" :src="user.avatar_url" alt="avatar_image">
+        </div>
         <h1>{{ user.name }}</h1>
         <p>{{ user.desc }}</p>
       </el-aside>
@@ -53,7 +55,8 @@ export default {
           this.user = {
             name: data.name,
             desc: data.bio,
-            username: data.username
+            username: data.username,
+            avatar_url: data.avatar_url
           };
         });
     },
@@ -79,5 +82,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+h1 {
+  font-size: 1.6em
+}
+p{
+  padding: 0px 30px;
+  color: #777
 }
 </style>
