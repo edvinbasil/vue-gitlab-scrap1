@@ -3,17 +3,35 @@
     <el-container style="height: 97vh">
       <el-aside width="25%" style="background-color: #f5f5f5">
         <div style="height:200px; width:200px; margin:auto; margin-top: 20px">
-          <img style="border-radius: 50%" height="100%" :src="user.avatar_url" alt="avatar_image">
+          <img
+            style="border-radius: 50%"
+            height="100%"
+            :src="user.avatar_url"
+            alt="avatar_image"
+          />
         </div>
         <h1>{{ user.name }}</h1>
         <p>{{ user.desc }}</p>
-        <a style="color: #0366d6; font-size:1.2em" target="_blank" rel="noopener noreferrer" :href="'https://gitlab.com/' + user.username">@{{ user.username }}</a>
+        <a
+          style="color: #0366d6; font-size:1.2em"
+          target="_blank"
+          rel="noopener noreferrer"
+          :href="'https://gitlab.com/' + user.username"
+          >@{{ user.username }}</a
+        >
       </el-aside>
 
       <el-container>
         <el-main>
           <h2>My Projects</h2>
-          <el-table :data="projects" style="width: 75%; margin: auto">
+          <el-row :gutter="20">
+            <el-col :span="8" v-for="project in projects" :key="project.id">
+              <el-card class="box-card" shadow="hover">
+                <div class="proj_title">{{ project.name }}</div>
+              </el-card>
+            </el-col>
+          </el-row>
+          <!-- <el-table :data="projects" style="width: 75%; margin: auto">
             <el-table-column prop="name" label="Name"></el-table-column>
             <el-table-column
               prop="description"
@@ -28,7 +46,7 @@
                 >
               </template>
             </el-table-column>
-          </el-table>
+          </el-table>-->
         </el-main>
       </el-container>
     </el-container>
@@ -86,10 +104,13 @@ export default {
 }
 h1 {
   font-size: 1.6em;
-  font-weight: 600
+  font-weight: 600;
 }
-p{
+p {
   padding: 0px 30px;
-  color: #777
+  color: #777;
+}
+.el-col {
+  margin-top: 10px;
 }
 </style>
