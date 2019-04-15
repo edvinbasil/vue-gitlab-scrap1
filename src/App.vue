@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div :class="{ hide: loaded }" class="cover"></div>
     <el-container style="height: 97vh">
       <el-aside width="25%">
         <div style="height:200px; width:200px; margin:auto; margin-top: 20px">
@@ -56,7 +57,8 @@ export default {
     return {
       user_id: window.location.pathname.substring(1) || 2367780,
       user: {},
-      projects: []
+      projects: [],
+      loaded: 0
     };
   },
   methods: {
@@ -80,6 +82,7 @@ export default {
         .then(res => res.json())
         .then(data => {
           this.projects = data;
+          this.loaded = 1
         });
     }
   },
@@ -139,5 +142,15 @@ i{
 }
 .social i {
   padding: 0 10px;
+}
+.cover{
+  position: absolute;
+  background-color: #202d3a;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+.hide{
+  display: none
 }
 </style>
