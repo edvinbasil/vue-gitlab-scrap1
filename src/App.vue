@@ -27,26 +27,12 @@
           <el-row :gutter="20">
             <el-col :span="8" v-for="project in projects" :key="project.id">
               <el-card class="box-card" shadow="hover">
-                <div class="proj_title">{{ project.name }}</div>
+                <a class="proj_url" :href="project.http_url_to_repo"
+                  ><div class="proj_title">{{ project.name }}</div></a
+                >
               </el-card>
             </el-col>
           </el-row>
-          <!-- <el-table :data="projects" style="width: 75%; margin: auto">
-            <el-table-column prop="name" label="Name"></el-table-column>
-            <el-table-column
-              prop="description"
-              label="Description"
-            ></el-table-column>
-            <el-table-column prop="http_url_to_repo" label="URL">
-              <template slot-scope="scope">
-                <a
-                  :href="scope.row.http_url_to_repo"
-                  style="text-decoration:none; color: #0366d6"
-                  >{{ scope.row.http_url_to_repo }}</a
-                >
-              </template>
-            </el-table-column>
-          </el-table>-->
         </el-main>
       </el-container>
     </el-container>
@@ -112,5 +98,10 @@ p {
 }
 .el-col {
   margin-top: 10px;
+}
+.proj_url {
+  text-decoration: none;
+  color: #0366d6;
+  font-weight: 600;
 }
 </style>
