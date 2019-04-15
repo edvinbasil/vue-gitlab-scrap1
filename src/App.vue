@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container style="height: 97vh">
-      <el-aside width="25%" style="background-color: #f5f5f5">
+      <el-aside width="25%">
         <div style="height:200px; width:200px; margin:auto; margin-top: 20px">
           <img
             style="border-radius: 50%"
@@ -13,22 +13,23 @@
         <h1>{{ user.name }}</h1>
         <p>{{ user.desc }}</p>
         <a
-          style="color: #0366d6; font-size:1.2em"
+          style="color: #0366d6; font-size:1.2em; text-decoration:none;"
           target="_blank"
           rel="noopener noreferrer"
           :href="'https://gitlab.com/' + user.username"
-          >@{{ user.username }}</a
+          >{{ `@${user.username}` }}</a
         >
       </el-aside>
 
       <el-container>
-        <el-main>
+        <el-main style="background-color: #fafbfc; border-left: solid 1px #ddd">
           <h2>My Projects</h2>
           <el-row :gutter="20">
             <el-col :span="8" v-for="project in projects" :key="project.id">
               <el-card class="box-card" shadow="hover">
                 <a class="proj_url" :href="project.http_url_to_repo"
-                  ><div class="proj_title">{{ project.name }}</div></a
+                  >
+                  <div class="proj_title"><i class="fab fa-gitlab"></i>{{ project.name }}</div></a
                 >
                 <div class="proj_desc">{{ project.description }}</div>
               </el-card>
@@ -109,6 +110,11 @@ p {
   font-size: 0.85em;
   line-height: 18px;
   color: #586069;
-  margin-top: 7px
+  margin-top: 7px;
+  cursor: default;
+}
+.fab{
+  color:#586069;
+  padding-right: 7px
 }
 </style>
