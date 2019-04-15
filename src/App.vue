@@ -30,6 +30,7 @@
                 <a class="proj_url" :href="project.http_url_to_repo"
                   ><div class="proj_title">{{ project.name }}</div></a
                 >
+                <div class="proj_desc">{{ project.description }}</div>
               </el-card>
             </el-col>
           </el-row>
@@ -103,5 +104,11 @@ p {
   text-decoration: none;
   color: #0366d6;
   font-weight: 600;
+}
+.proj_desc{
+  font-size: 0.85em;
+  line-height: 18px;
+  color: #586069;
+  margin-top: 7px
 }
 </style>
