@@ -19,12 +19,17 @@
           :href="'https://gitlab.com/' + user.username"
           >{{ `@${user.username}` }}</a
         >
+        <el-row class="social">
+          <a v-if="user.website" :href="user.website"><i class="fas fa-link"></i></a>
+          <a v-if="user.linkedin" :href="user.linkedin"><i class="fab fa-linkedin"></i></a>
+          <a v-if="user.twitter" :href="user.twitter"><i class="fab fa-twitter-square"></i></a>
+        </el-row>
       </el-aside>
 
       <el-container>
         <el-main style="background-color: #fafbfc; border-left: solid 1px #ddd">
           <h2>My Projects</h2>
-          <el-row gutter="20" type="flex">
+          <el-row :gutter="20" type="flex">
             <el-col :span="8" v-for="project in projects" :key="project.id">
               <el-card class="box-card" shadow="hover">
                 <a class="proj_url" :href="project.web_url"
@@ -63,7 +68,10 @@ export default {
             name: data.name,
             desc: data.bio,
             username: data.username,
-            avatar_url: data.avatar_url
+            avatar_url: data.avatar_url,
+            website: data.website_url,
+            linkedin: data.linkedin.match('https') ? data.linkedin : `https://linkedin.com/in/${data.linkedin}`,
+            twitter: data.twitter.match('https') ? data.twitter : `https://twitter.com/${data.twitter.slice(1)}`
           };
         });
     },
@@ -121,8 +129,15 @@ p {
   cursor: default;
   text-align: left;
 }
-.fab{
+i{
   color:#586069;
   padding-right: 7px
+}
+.social {
+  margin-top: 20px;
+  font-size: 1.2em
+}
+.social i {
+  padding: 0 10px;
 }
 </style>
