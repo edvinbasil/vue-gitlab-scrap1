@@ -24,10 +24,10 @@
       <el-container>
         <el-main style="background-color: #fafbfc; border-left: solid 1px #ddd">
           <h2>My Projects</h2>
-          <el-row :gutter="20">
+          <el-row gutter="20" type="flex">
             <el-col :span="8" v-for="project in projects" :key="project.id">
               <el-card class="box-card" shadow="hover">
-                <a class="proj_url" :href="project.http_url_to_repo"
+                <a class="proj_url" :href="project.web_url"
                   >
                   <div class="proj_title"><i class="fab fa-gitlab"></i>{{ project.name }}</div></a
                 >
@@ -98,13 +98,20 @@ p {
   padding: 0px 30px;
   color: #777;
 }
+.el-row{
+  flex-wrap: wrap
+}
 .el-col {
   margin-top: 10px;
+}
+.el-card{
+  height: 100%
 }
 .proj_url {
   text-decoration: none;
   color: #0366d6;
   font-weight: 600;
+  text-align: left;
 }
 .proj_desc{
   font-size: 0.85em;
@@ -112,6 +119,7 @@ p {
   color: #586069;
   margin-top: 7px;
   cursor: default;
+  text-align: left;
 }
 .fab{
   color:#586069;
