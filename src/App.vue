@@ -72,8 +72,8 @@ export default {
             username: data.username,
             avatar_url: data.avatar_url,
             website: data.website_url,
-            linkedin: data.linkedin.match('https') ? data.linkedin : `https://linkedin.com/in/${data.linkedin}`,
-            twitter: data.twitter.match('https') ? data.twitter : `https://twitter.com/${data.twitter.slice(1)}`
+            linkedin: data.linkedin ? (data.linkedin.match('https') ? data.linkedin : `https://linkedin.com/in/${data.linkedin}`) : '',
+            twitter: data.twitter ? (data.twitter.match('https') ? data.twitter : `https://twitter.com/${data.twitter.slice(1)}`) : ''
           };
         });
     },
