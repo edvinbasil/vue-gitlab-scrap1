@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div :class="{ hide: loaded }" class="cover"></div>
+    <div :class="{ hide: (loaded == 2) }" class="cover"></div>
     <el-container style="height: 97vh">
       <el-aside width="25%">
         <div style="height:200px; width:200px; margin:auto; margin-top: 20px">
@@ -75,6 +75,7 @@ export default {
             linkedin: data.linkedin ? (data.linkedin.match('https') ? data.linkedin : `https://linkedin.com/in/${data.linkedin}`) : '',
             twitter: data.twitter ? (data.twitter.match('https') ? data.twitter : `https://twitter.com/${data.twitter.slice(1)}`) : ''
           };
+          this.loaded += 1
         });
     },
     getProjects() {
@@ -82,7 +83,7 @@ export default {
         .then(res => res.json())
         .then(data => {
           this.projects = data;
-          this.loaded = 1
+          this.loaded +=1
         });
     }
   },
